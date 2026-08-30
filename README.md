@@ -7,9 +7,14 @@ joint likelihood over ancestry proportions. It does not require hard genotype
 calls and is not tied to a sequencing platform or reference assembly.
 
 The inference algorithm is a conventional statistical likelihood model, not
-an AI model. The implementation was developed with AI assistance and was
-methodologically inspired by iAdmix; AIdmix is an independent project and is
-not affiliated with iAdmix.
+an AI model. AIdmix is similar in overall statistical purpose and was
+methodologically inspired by the [iAdmix project](https://github.com/eliorav/iAdmix),
+which estimates admixture coefficients from genotype or sequence data. AIdmix
+is an independent implementation and is not affiliated with iAdmix.
+
+The two projects should not be assumed to produce identical estimates: panel
+definitions, read/genotype-likelihood construction, reference assemblies, and
+optimization details may differ.
 
 ## Requirements
 
