@@ -1,0 +1,65 @@
+# Python build and development artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+.coverage
+
+# Editors and local environments
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+
+# Genomic inputs, references, indexes, and generated panels
+data/
+work/
+tmp/
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.vcf
+*.vcf.gz
+*.bcf
+*.tbi
+*.csi
+*.fa
+*.fasta
+*.fna
+*.fai
+*.gzi
+*.dict
+*.bed
+*.chain
+*.chain.gz
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.list
+
+# Results and scheduler/runtime output
+results/
+logs/
+*.log
+*.out
+*.err
+
+# Identifiable or de-identification support material
+hippafy_xref/
+conversion_report.*
+*_hippafied/
+*.hippafy.vault
+
+# Explicitly permit synthetic test fixtures if added later
+!tests/fixtures/
+!tests/fixtures/**
