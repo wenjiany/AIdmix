@@ -11,7 +11,6 @@ from aidmix.ancestry import (
     Marker,
     SiteObs,
     bootstrap,
-    build_parser,
     choose_fit_result,
     fit,
     read_log_likelihood,
@@ -23,16 +22,6 @@ from aidmix.ancestry import (
 
 
 class TestAIMAncestry(unittest.TestCase):
-    def test_default_pileup_depth_cap_is_twenty(self):
-        parser = build_parser()
-        args = parser.parse_args([
-            "--panel", "panel.tsv",
-            "--reference", "reference.fa",
-            "--alignment", "sample.bam",
-            "--output", "ancestry.tsv",
-        ])
-        self.assertEqual(args.max_depth, 20)
-
     def test_softmax_sums_to_one(self):
         self.assertAlmostEqual(float(softmax(np.array([1., 2., 3., 4.])).sum()), 1.0)
 

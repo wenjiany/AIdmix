@@ -456,7 +456,7 @@ def ancestry_one(cram: str, args: argparse.Namespace, markers: list[Marker], pop
     return row
 
 
-def build_parser() -> argparse.ArgumentParser:
+def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--panel", required=True)
     p.add_argument("--reference", required=True)
@@ -469,25 +469,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--max-af", type=float, default=0.995)
     p.add_argument("--min-mapq", type=int, default=20)
     p.add_argument("--min-baseq", type=int, default=10)
-    p.add_argument(
-        "--max-depth",
-        type=int,
-        default=20,
-        help="maximum pileup reads per input alignment at each marker (default: 20)",
-    )
+    p.add_argument("--max-depth", type=int, default=10000)
     p.add_argument("--target-weight", type=float, default=0.25)
     p.add_argument("--bootstrap", type=int, default=100)
     p.add_argument("--seed", type=int, default=20260828)
     p.add_argument("--min-sites", type=int, default=100)
     p.add_argument("--min-chromosomes", type=int, default=10)
-    return p
-
-
-def main() -> None:
-    p = build_parser()
     args = p.parse_args()
-    if args.max_depth < 1:
-        p.error("--max-depth must be at least 1")
     if not args.alignment and not args.alignment_list:
         p.error("provide --alignment or --alignment-list")
     alignments = list(args.alignment or [])
