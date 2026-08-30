@@ -78,6 +78,7 @@ aidmix \
   --output /path/to/sample.ancestry.tsv \
   --min-mapq 20 \
   --min-baseq 10 \
+  --max-depth 20 \
   --min-sites 100 \
   --min-chromosomes 10 \
   --bootstrap 0
@@ -87,6 +88,14 @@ Multiple alignments can be supplied by repeating `--alignment` or by using
 `--alignment-list`. When a target BED is supplied, AIdmix reports background,
 target, and downweighted joint estimates. Without a target BED, observed sites
 are treated as background.
+
+The default `--max-depth 20` is passed directly to `samtools mpileup`, limiting
+each marker to at most 20 reads per input alignment before Python parses bases
+and calculates genotype likelihoods. Sites below 20x are unchanged. This early
+cap improves speed for high-coverage data and limits the influence of unusually
+deep loci. It follows pileup traversal order rather than performing uniform
+random sampling; raise the cap when using very small panels or when additional
+within-site precision is important.
 
 ## Combine one-sample outputs
 

@@ -46,6 +46,15 @@ Log probabilities are summed over retained reads at the marker:
 These are genotype likelihoods, not hard genotype calls or genotype posterior
 probabilities.
 
+By default, `samtools mpileup` contributes at most 20 reads per input alignment
+at each marker. Thus the read index `i` above spans no more than 20 retained
+pileup observations. The cap is applied before Python likelihood calculation,
+which improves speed and prevents isolated high-depth markers from receiving
+disproportionate precision. It is a pileup traversal cap, not uniform random
+sampling. The threshold is configurable with `--max-depth`; analyses using
+small marker panels or unusual error profiles should validate sensitivity to
+larger values.
+
 ## Ancestry likelihood
 
 Marginalize the latent genotype:
