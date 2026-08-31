@@ -4,17 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aidmix-ancestry"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Genotype-likelihood ancestry mixture estimation from BAM or CRAM alignments"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
+authors = [
+  {name = "Wenjian Yang", email = "wenjiany@gmail.com"},
+]
 dependencies = [
   "numpy>=1.24",
   "pysam>=0.22",
   "scipy>=1.10",
   "pyliftover>=0.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/wenjiany/AIdmix"
+Repository = "https://github.com/wenjiany/AIdmix"
+Issues = "https://github.com/wenjiany/AIdmix/issues"
 
 [project.optional-dependencies]
 test = ["pytest>=7"]

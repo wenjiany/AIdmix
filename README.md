@@ -24,7 +24,13 @@ optimization details may differ.
 - the exact matching reference FASTA and index; and
 - an ancestry-frequency panel on the same assembly.
 
-Install for development:
+Install the tagged release directly from GitHub:
+
+```bash
+python -m pip install 'aidmix-ancestry @ git+https://github.com/wenjiany/AIdmix.git@v0.1.0'
+```
+
+Or clone the repository and install it for development:
 
 ```bash
 python3 -m venv .venv
