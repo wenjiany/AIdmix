@@ -120,6 +120,24 @@ treated as equivalent without validation.
 python -m unittest discover -s tests
 ```
 
+## AI agent skill
+
+This repository includes a portable Agent Skills package at
+`.agents/skills/aidmix-ancestry`. Skills-compatible coding agents can discover
+it directly while working in this checkout. For user-level discovery across
+compatible clients, symlink the same directory into the shared skills
+location:
+
+```bash
+mkdir -p ~/.agents/skills
+ln -s /path/to/AIdmix/.agents/skills/aidmix-ancestry \
+  ~/.agents/skills/aidmix-ancestry
+```
+
+Clients that use a product-specific skills directory can point that directory
+at the same skill; copying separate versions is discouraged because the
+methodology reference should remain synchronized with the implementation.
+
 ## Privacy
 
 This repository contains source code, documentation, and synthetic tests only.

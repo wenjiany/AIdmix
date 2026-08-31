@@ -1,0 +1,4 @@
+interface:
+  display_name: "AIdmix ancestry"
+  short_description: "Likelihood ancestry from BAM or CRAM alignments"
+  default_prompt: "Use $aidmix-ancestry to prepare or validate an ancestry panel, run a pilot or cohort, and summarize ancestry estimates."

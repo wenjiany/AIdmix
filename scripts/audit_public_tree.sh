@@ -10,8 +10,17 @@ if git ls-files | grep -Ei "$forbidden_path"; then
 fi
 
 forbidden_content='/research/|/home/|authorized_apps|rgs01|yanggrp|TTCRC|ONTDNA|SUBJECT-ID|hippafy_xref'
-if git grep -InE "$forbidden_content" -- +    ':!.gitignore' +    ':!scripts/audit_public_tree.sh'; then
+if git grep -InE "$forbidden_content" -- \
+    ':!.gitignore' \
+    ':!scripts/audit_public_tree.sh'; then
     printf 'ERROR: tracked content contains a local or identifying marker\n' >&2
+    exit 1
+fi
+
+if ! cmp -s \
+    docs/methodology.md \
+    .agents/skills/aidmix-ancestry/references/methodology.md; then
+    printf 'ERROR: skill methodology is not synchronized with docs/methodology.md\n' >&2
     exit 1
 fi
 
